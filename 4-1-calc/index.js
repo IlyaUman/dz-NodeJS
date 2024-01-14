@@ -18,7 +18,6 @@ if (!operators.includes(operator)) {
 	try {
 		console.log(func[operator](num1, num2))
 	} catch(e) {
-		//if (e instanceof )
 		console.log(e.message)
 	}
 };
