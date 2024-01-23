@@ -20,3 +20,4 @@ setTimeout(
   },
   timer <= 2000 ? timer : 1000
 );
+
