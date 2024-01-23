@@ -4,21 +4,18 @@ import { mult } from "./mult.js";
 
 import { div } from "./div.js";
 
-const [, , operator, num1, num2] = process.argv;
-const operators = ['add', 'mult', 'div'];
-const func = {
-	'add': add,
-	'mult': mult,
-	'div': div
-};
-if (!operators.includes(operator)) {
-	console.error('Enter correct operator!');
-	//throw new Error('Enter correct operator!')	- почему-то не работает(((
+const [, , operator, num1, num2, smth] = process.argv;
+const func = { add, mult, div };
+const operators = Object.keys(func);
+if (!operators.includes(operator) || smth) {
+  throw new Error(
+    "Enter correct operator and expression like that: 'add 5 6'!"
+  );
 } else {
-	try {
-		console.log(func[operator](num1, num2))
-	} catch(e) {
-		//if (e instanceof )
-		console.log(e.message)
-	}
-};
+  try {
+    console.log(func[operator](num1, num2));
+  } catch (e) {
+    console.error(e.message);
+  }
+}
+

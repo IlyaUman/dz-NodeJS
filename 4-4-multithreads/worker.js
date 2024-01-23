@@ -1,25 +1,16 @@
+import { parentPort, workerData } from "node:worker_threads";
 
+import { countNums } from "./arrFuncs.js";
 
-import { parentPort, workerData } from 'node:worker_threads'
+const calc = ({ arr }) => {
+  let num = 0;
 
-// const calc = ({arr}) => {
-// 	return arr.map((x) => (Math.random() > 0.5 ? x * 2 : x / 3))
-// }
+  try {
+    num = countNums(arr);
+    return num;
+  } catch (err) {
+    return err.message;
+  }
+};
 
-const calc = ({arr}) => {
-	let num = 0
-
-try {
-	arr.forEach(el => {
-		if (el % 3 == 0) {
-			num++
-		}
-	})
-	return num
-} catch(err) {
-	return err.message
-}
-	
-}
-
-parentPort.postMessage(calc(workerData))
+parentPort.postMessage(calc(workerData));
