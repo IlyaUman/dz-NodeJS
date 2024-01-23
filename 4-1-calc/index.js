@@ -5,19 +5,16 @@ import { mult } from "./mult.js";
 import { div } from "./div.js";
 
 const [, , operator, num1, num2, smth] = process.argv;
-const operators = ["add", "mult", "div"];
-const func = {
-  add: add,
-  mult: mult,
-  div: div,
-};
+const func = { add, mult, div };
+const operators = Object.keys(func);
 if (!operators.includes(operator) || smth) {
-  console.error("You must enter correct operator and two numbers like that: 'add 5 10'!");
-  //throw new Error('Enter correct operator!')	- почему-то не работает(((
+  throw new Error(
+    "Enter correct operator and expression like that: 'add 5 6'!"
+  );
 } else {
   try {
     console.log(func[operator](num1, num2));
   } catch (e) {
-    console.log(e.message);
+    console.error(e.message);
   }
 }
