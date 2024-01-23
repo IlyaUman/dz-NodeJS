@@ -1,11 +1,11 @@
 const getSecs = (args) => {
   let res = 0;
   if (args[2] !== undefined) {
-    res = args[2];
+    res = parseFloat(args[2]);
   } else if (args[1] !== undefined) {
-    res = args[1];
+    res = parseFloat(args[1]);
   } else if (args[0] !== undefined) {
-    res = args[0];
+    res = parseFloat(args[0]);
   } else res = 0;
   return res;
 };
@@ -13,9 +13,9 @@ const getSecs = (args) => {
 const getMins = (args) => {
   let res = 0;
   if (args[2] !== undefined) {
-    res = args[1];
+    res = parseFloat(args[1]);
   } else if (args[1] !== undefined) {
-    res = args[0];
+    res = parseFloat(args[0]);
   } else res = 0;
   return res;
 };
@@ -23,7 +23,7 @@ const getMins = (args) => {
 const getHours = (args) => {
   let res = 0;
   if (args[2] !== undefined) {
-    res = args[0];
+    res = parseFloat(args[0]);
   } else res = 0;
   return res;
 };
