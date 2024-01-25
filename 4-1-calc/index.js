@@ -18,3 +18,4 @@ if (!operators.includes(operator) || smth) {
     console.error(e.message);
   }
 }
+
